@@ -202,22 +202,36 @@ blockquote sup {
 /* Thumbnail Gallery */
 .thumbnail-gallery {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0;
+    gap: 15px;
+}
+
+.thumbnail-gallery a {
+    flex: 1 1 calc(25% - 15px);
+    min-width: 150px;
+    display: block;
+    height: 180px; /* Fixed height */
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #4682b4;
+    transition: all 0.3s ease;
 }
 
 .thumbnail-gallery img {
-    width: 23%;
-    height: auto;
-    border: 2px solid #4682b4;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.thumbnail-gallery img:hover {
-    transform: scale(1.05);
+.thumbnail-gallery a:hover {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-gallery a:hover img {
+    transform: scale(1.05);
 }
 
 footer {
